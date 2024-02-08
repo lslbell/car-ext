@@ -16,20 +16,12 @@ const searchMOTHistory = (registration) => {
 const handleClickSearchBtn = () => {
     let input = document.getElementById("search-mot").value;
     if (input) {
-        searchMOTHistory(input);
+        let formattedInput = input.replaceAll(" ", "");
+        searchMOTHistory(formattedInput);
     }
 };
-
-const handleSelectText = (word) => {
-    searchMOTHistory(word.selectionText);
-}
 
 let searchBtn = document.getElementById("search-btn");
 searchBtn.addEventListener("click", handleClickSearchBtn);
 
-let inputBox = document.getElementById("search-mot");
-inputBox.addEventListener('keypress', function (event) {
-    if (event.key === 'Enter') {
-      searchBtn.click();  
-    }
-});
+

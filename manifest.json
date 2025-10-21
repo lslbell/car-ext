@@ -1,7 +1,7 @@
 {
-    "name": "MOT Quick search",
+    "name": "MOT History",
     "version": "1.0.0",
-    "description": "Provides an on the page mot checker(UK)",
+    "description": "Quick-search feature for UK car registration MOT History.",
     "manifest_version": 3,
     "author": "Lewis Bell",
     "minimum_chrome_version": "88",

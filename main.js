@@ -1,8 +1,9 @@
 const baseUri = 'https://www.check-mot.service.gov.uk/results?registration=';
+const checkRecalls = '&checkRecalls=true';
 
-const searchMOTHistory = (registration) => {
+function searchMOTHistory(registration) {
     try {
-        const uri = baseUri + registration;
+        const uri = baseUri + registration + checkRecalls;
         chrome.tabs.create({
             'url': uri
         });
@@ -12,8 +13,7 @@ const searchMOTHistory = (registration) => {
     }
 };
 
-
-const handleClickSearchBtn = () => {
+function handleClickSearchBtn() {
     let input = document.getElementById("search-mot").value;
     if (input) {
         let formattedInput = input.replaceAll(" ", "");
@@ -24,4 +24,10 @@ const handleClickSearchBtn = () => {
 let searchBtn = document.getElementById("search-btn");
 searchBtn.addEventListener("click", handleClickSearchBtn);
 
+let inputBox = document.getElementById("search-mot");
+inputBox.addEventListener('keypress', function (event) {
+    if (event.key === 'Enter') {
+      searchBtn.click();  
+    }
+});
 
